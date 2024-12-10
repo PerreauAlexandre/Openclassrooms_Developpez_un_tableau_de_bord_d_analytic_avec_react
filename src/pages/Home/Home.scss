@@ -1,0 +1,23 @@
+@use '../../Variables.scss' as *;
+
+#home {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+
+  .link {
+    width: 250px;
+    height: 100px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $colour-secondary;
+    color: #ffffff;
+    font-size: 24px;
+  }
+}
