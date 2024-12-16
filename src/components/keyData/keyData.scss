@@ -1,0 +1,55 @@
+#key-data-card {
+  width: 100%;
+  height: 120px;
+  padding-left: 30px;
+  background-color: #fbfbfb;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px 0px rgba(#000000, 0.02);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 20px;
+      width: auto;
+    }
+  }
+
+  .red {
+    background-color: rgba(#ff0000, 0.1);
+  }
+  .blue {
+    background-color: rgba(#4ab8ff, 0.1);
+  }
+  .yellow {
+    background-color: rgba(#f9ce23, 0.1);
+  }
+  .pink {
+    background-color: rgba(#fd5181, 0.1);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+
+    .value {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #74798c;
+    }
+  }
+}
