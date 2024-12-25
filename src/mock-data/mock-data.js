@@ -1,4 +1,4 @@
-export const userDataMock  = [
+export const userDataMock = [
     {
         id: 12,
         userInfos: {

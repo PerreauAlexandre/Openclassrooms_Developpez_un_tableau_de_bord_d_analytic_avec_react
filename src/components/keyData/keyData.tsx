@@ -1,6 +1,6 @@
-import './keyData.scss'
+import './KeyData.scss'
 
-type keyDataProps = {
+type KeyDataProps = {
   icon: string
   color: string
   value: number
@@ -8,14 +8,14 @@ type keyDataProps = {
   description: string
 }
 
-function KeyDataCard({ icon, color, value, unit, description }: keyDataProps) {
+function KeyDataCard({ icon, color, value, unit, description }: KeyDataProps) {
   return (
     <div id="key-data-card">
       <div className={`icon ${color}`}>
         <img src={icon} alt={`${description} icon`} />
       </div>
       <div className="content">
-        <div className="value">{value}{unit}</div>
+        <div className="value">{new Intl.NumberFormat("en-IN").format(value)}{unit}</div>
         <div className="description">{description}</div>
       </div>
     </div>

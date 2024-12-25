@@ -1,7 +1,11 @@
 import { useParams } from 'react-router-dom'
 import useUserData from '../../utils/useUserData'
 import './TableauDeBord.scss'
-import KeyDataCard from '../../components/keyData/keyData'
+import ActivityGraph from '../../components/ActivityGraph/ActivityGraph'
+import SessionsGraph from '../../components/SessionsGraph/SessionsGraph'
+import PerformanceGraph from '../../components/PerformanceGraph/PerformanceGraph'
+import ScoreGraph from '../../components/ScoreGraph/ScoreGraph'
+import KeyDataCard from '../../components/KeyData/KeyData'
 import logo from '../../assets/logo.svg'
 import yogaIcon from '../../assets/yogaIcon.svg'
 import swimmingIcon from '../../assets/swimmingIcon.svg'
@@ -24,13 +28,7 @@ function TableauDeBord() {
     error,
   } = useUserData(userId)
 
-  if (
-    error ||
-    !userData ||
-    !userActivity ||
-    !userSessions ||
-    !userPerformance
-  ) {
+  if (error) {
     return <div>Il y a un problème</div>
   }
 
@@ -67,40 +65,47 @@ function TableauDeBord() {
         <div className="main-content">
           <div className="top-infos">
             <div className="user-name">
-              Bonjour <span>{userData.userInfos.firstName}</span>
+              Bonjour <span>{userData?.userInfos.firstName}</span>
             </div>
             <div className="description">
               Félicitation ! Vous avez explosé vos objectifs hier 👏
             </div>
           </div>
           <div className="statistics">
-            <div className="graphs"></div>
+            <div className="graphs">
+              <ActivityGraph userActivity={userActivity} />
+              <div className="horizontal-graphs">
+                <SessionsGraph userSessions={userSessions} />
+                <PerformanceGraph UserPerformance={userPerformance} />
+                <ScoreGraph userScore={userData?.todayScore} />
+              </div>
+            </div>
             <div className="key-data">
               <KeyDataCard
                 icon={energy}
                 color="red"
-                value={userData.keyData.calorieCount}
+                value={userData?.keyData.calorieCount || 0}
                 unit="kCal"
                 description="Calories"
               />
               <KeyDataCard
                 icon={chicken}
                 color="blue"
-                value={userData.keyData.proteinCount}
+                value={userData?.keyData.proteinCount || 0}
                 unit="g"
                 description="Proteines"
               />
               <KeyDataCard
                 icon={apple}
                 color="yellow"
-                value={userData.keyData.carbohydrateCount}
+                value={userData?.keyData.carbohydrateCount || 0}
                 unit="g"
                 description="Glucides"
               />
               <KeyDataCard
                 icon={cheeseburger}
                 color="pink"
-                value={userData.keyData.lipidCount}
+                value={userData?.keyData.lipidCount || 0}
                 unit="g"
                 description="Lipides"
               />

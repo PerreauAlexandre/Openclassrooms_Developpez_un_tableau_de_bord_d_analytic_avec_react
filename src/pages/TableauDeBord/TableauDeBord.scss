@@ -23,7 +23,7 @@
   }
 
   main {
-    flex-grow: 1;
+    height: calc(100vh - 91px);
     display: flex;
 
     .left-menu {
@@ -65,13 +65,13 @@
     }
 
     .main-content {
-      flex-grow: 1;
-      padding: 5%;
+      width: calc(100vw - 117px);
+      padding: 3% 5%;
       display: flex;
       flex-direction: column;
+      overflow: auto;
 
       .top-infos {
-
         .user-name {
           font-size: 48px;
 
@@ -88,7 +88,6 @@
       }
 
       .statistics {
-        flex-grow: 1;
         padding-top: 3%;
         display: flex;
         gap: 3%;
@@ -96,15 +95,21 @@
         .graphs {
           width: 70%;
           height: 100%;
+
+          .horizontal-graphs {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+          }
         }
-        
+
         .key-data {
           width: 27%;
           height: 100%;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          gap: 30px;
+          gap: 20px;
         }
       }
     }
