@@ -1,0 +1,49 @@
+@use '../../Variables.scss' as *;
+
+#error-page {
+  min-height: calc(100vh - 209px - 68px - 45px);
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 100px;
+
+  @media screen and (max-width: 768px) {
+    padding: 100px 50px;
+  }
+
+  .error-title {
+    color: $colour-primary;
+    font-size: 288px;
+    font-weight: 700;
+    line-height: 263px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 96px;
+      line-height: 99px;
+    }
+  }
+
+  .error-text {
+    color: $colour-primary;
+    font-size: 36px;
+    font-weight: 500;
+    text-align: center;
+
+    @media screen and (max-width: 768px) {
+      font-size: 18px;
+    }
+  }
+
+  .link {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: underline;
+
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+}

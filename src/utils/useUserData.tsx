@@ -59,17 +59,17 @@ function useUserData(userId: string | undefined) {
             const activityMock = userActivityMock.find(
               (activity: UserActivity) => activity.userId === parseInt(userId)
             )
-            setUserData(activityMock)
+            setUserActivity(activityMock)
             const sessionMock = userSessionsMock.find(
               (session: UserAverageSessions) =>
                 session.userId === parseInt(userId)
             )
-            setUserData(sessionMock)
+            setUserSessions(sessionMock)
             const performanceMock = userPerformanceMock.find(
               (performance: UserPerformance) =>
                 performance.userId === parseInt(userId)
             )
-            setUserData(performanceMock)
+            setUserPerformance(performanceMock)
           }
         }
       } catch (err) {

@@ -5,7 +5,7 @@
   height: 50%;
   background-color: #fbfbfb;
   border-radius: 5px;
-  padding: 20px;
+  padding: 10px 20px 20px 20px;
   box-shadow: 0px 2px 4px 0px rgba(#000000, 0.02);
 
   .header {
@@ -14,9 +14,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
 
     .title {
       font-size: 15px;
+      font-weight: 700;
       color: #20253a;
     }
 

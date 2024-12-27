@@ -1,14 +1,6 @@
 import { UserAverageSessions } from '../../type/type'
 import './SessionsGraph.scss'
-import {
-  ResponsiveContainer,
-  LineChart,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-  Line,
-} from 'recharts'
+import { ResponsiveContainer, LineChart, XAxis, Tooltip, Line } from 'recharts'
 
 type SessionsGraphProps = {
   userSessions: UserAverageSessions | undefined
@@ -24,6 +16,7 @@ function SessionsGraph({ userSessions }: SessionsGraphProps) {
 
   return (
     <div id="sessions-graph">
+      <div className="title">Durée moyenne des sessions</div>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={sessionsData}
@@ -31,7 +24,7 @@ function SessionsGraph({ userSessions }: SessionsGraphProps) {
             top: 75,
             right: 15,
             left: 15,
-            bottom: 30,
+            bottom: 40,
           }}
         >
           <XAxis
@@ -45,8 +38,8 @@ function SessionsGraph({ userSessions }: SessionsGraphProps) {
             labelStyle={{ display: 'none' }}
             itemStyle={{ color: '#000000', fontSize: '10px' }}
             formatter={(value) => [`${value} min`]}
+            cursor={false}
           />
-          {/* <Legend /> */}
           <Line
             type="natural"
             dataKey="sessionLength"

@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Navigate } from 'react-router-dom'
 import useUserData from '../../utils/useUserData'
 import './TableauDeBord.scss'
 import ActivityGraph from '../../components/ActivityGraph/ActivityGraph'
@@ -29,11 +29,11 @@ function TableauDeBord() {
   } = useUserData(userId)
 
   if (error) {
-    return <div>Il y a un problème</div>
+    return <Navigate to="/error" replace={true} />
   }
 
   return isLoading ? (
-    <div>test</div>
+    <div>Chargement des données...</div>
   ) : (
     <div id="tableau-de-bord">
       <header>
@@ -77,7 +77,7 @@ function TableauDeBord() {
               <div className="horizontal-graphs">
                 <SessionsGraph userSessions={userSessions} />
                 <PerformanceGraph UserPerformance={userPerformance} />
-                <ScoreGraph userScore={userData?.todayScore} />
+                <ScoreGraph userScore={userData?.todayScore ? userData.todayScore :  userData?.score} />
               </div>
             </div>
             <div className="key-data">
