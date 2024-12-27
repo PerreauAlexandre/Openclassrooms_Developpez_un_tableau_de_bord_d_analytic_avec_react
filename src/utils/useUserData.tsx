@@ -10,7 +10,7 @@ import {
   userActivityMock,
   userSessionsMock,
   userPerformanceMock,
-} from '../mock-data/mock-data.js'
+} from '../mock-data/mock-data.ts'
 import { config } from '../config'
 
 const API_BASE_URL = 'http://localhost:3000'

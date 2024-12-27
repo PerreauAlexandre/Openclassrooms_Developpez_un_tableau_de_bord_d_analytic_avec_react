@@ -28,12 +28,14 @@ function TableauDeBord() {
     error,
   } = useUserData(userId)
 
-  if (error) {
-    return <Navigate to="/error" replace={true} />
-  }
-
   return isLoading ? (
     <div>Chargement des données...</div>
+  ) : error ||
+    !userData ||
+    !userActivity ||
+    !userSessions ||
+    !userPerformance ? (
+    <Navigate to="/error" replace={true} />
   ) : (
     <div id="tableau-de-bord">
       <header>
@@ -77,7 +79,11 @@ function TableauDeBord() {
               <div className="horizontal-graphs">
                 <SessionsGraph userSessions={userSessions} />
                 <PerformanceGraph UserPerformance={userPerformance} />
-                <ScoreGraph userScore={userData?.todayScore ? userData.todayScore :  userData?.score} />
+                <ScoreGraph
+                  userScore={
+                    userData?.todayScore ? userData.todayScore : userData?.score
+                  }
+                />
               </div>
             </div>
             <div className="key-data">

@@ -19,14 +19,30 @@ function SessionsGraph({ userSessions }: SessionsGraphProps) {
       <div className="title">Durée moyenne des sessions</div>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
-          data={sessionsData}
+          onMouseMove={(e: any) => {
+            if (e.isTooltipActive === true) {
+              const div: any = document.getElementById('sessions-graph')
+              const windowWidth = div.clientWidth
+              const percentage = Math.round(
+                (e.activeCoordinate.x / windowWidth) * 100
+              )
+              div.style.background = `linear-gradient(90deg, rgba(255,0,0,1) ${percentage}%, rgba(230,0,0,1.5) ${percentage}%, rgba(230,0,0,1.5) 100%)`
+            }
+          }}
           margin={{
             top: 75,
             right: 15,
             left: 15,
             bottom: 40,
           }}
+          data={sessionsData}
         >
+          <defs>
+            <linearGradient id="colorUv" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#FFFFFF" stopOpacity={0.4} />
+              <stop offset="100%" stopColor="#FFFFFF" stopOpacity={1} />
+            </linearGradient>
+          </defs>
           <XAxis
             dataKey="day"
             axisLine={false}
@@ -43,7 +59,7 @@ function SessionsGraph({ userSessions }: SessionsGraphProps) {
           <Line
             type="natural"
             dataKey="sessionLength"
-            stroke="#FFFFFF"
+            stroke="url(#colorUv)"
             strokeWidth={2}
             dot={false}
             activeDot={{
