@@ -71,6 +71,10 @@
       flex-direction: column;
       overflow: auto;
 
+      @media screen and (max-width: 1400px) {
+        padding: 3%;
+      }
+
       .top-infos {
         .user-name {
           font-size: 48px;

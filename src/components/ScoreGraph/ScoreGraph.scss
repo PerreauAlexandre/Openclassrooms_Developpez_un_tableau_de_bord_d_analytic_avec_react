@@ -6,6 +6,10 @@
   box-shadow: 0px 2px 4px 0px rgba(#000000, 0.02);
   position: relative;
 
+  @media screen and (max-width: 1400px) {
+    width: calc(33% - 30px / 3);
+  }
+
   .title {
     position: absolute;
     top: 25px;
@@ -13,6 +17,11 @@
     font-size: 15px;
     font-weight: 700;
     color: #20253a;
+
+    @media screen and (max-width: 1200px) {
+      top: 20px;
+      left: 20px;
+    }
   }
 
   .legend {
